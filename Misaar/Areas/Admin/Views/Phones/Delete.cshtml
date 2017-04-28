@@ -1,0 +1,51 @@
+﻿@model Misaar.Models.Phone
+
+@{
+    ViewBag.Title = "Удаление телефона";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Удаление</h2>
+
+<h3>Уверены что хотите удалить этот телефон?</h3>
+<div>
+    <h4>Телефон</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Operator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Operator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasViber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasViber)
+        </dd>
+        
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+            <a href=@Url.Action("Index", "Phones") class="btn btn-default">
+                К списку телефонов
+            </a>
+        </div>
+    }
+</div>

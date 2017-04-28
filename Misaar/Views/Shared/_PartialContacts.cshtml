@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+@using Misaar.Models
+@model ContactViewModel
+
+<div class="phonesbann pull-right">
+    @if (Model.Phones != null)
+    {
+        foreach (var item in Model.Phones)
+        {
+            <p>
+                @if (item.HasViber)
+                {
+                    <img src="~/Images/vibericon.png" width="25" />
+                }
+                else
+                {
+                    <img src="~/Images/vibericon.png" width="25" style="opacity:0" />
+                }
+
+                @if (item.Operator == "МТС")
+                {
+                    <img src="~/Images/mts.jpg" width="25" />
+                }
+                else if (item.Operator == "Velcom")
+                {
+                    <img src="~/Images/iconvel.jpg" width="25" />
+                }
+                else if (item.Operator == "Life")
+                {
+                    <img src="~/Images/mts.jpg" width="25" />
+                }
+
+                @item.Number
+            </p>
+        }
+    }
+
+    @if (Model.Contacts != null)
+    {
+        foreach (var item in Model.Contacts)
+        {
+            <p>
+                <img src="~/Images/vibericon.png" width="25" style="opacity:0" />
+                <img src="~/Images/mailruIcon.png" width="25" />
+                @item.Email
+            </p>
+        }
+
+    }   
+</div>

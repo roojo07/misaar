@@ -1,0 +1,51 @@
+﻿@using Misaar.Models
+@model ContactViewModel
+
+@{
+    ViewBag.Title = "Контакты";
+}
+
+
+<div class="col-md-4 col-md-offset-1">
+    @foreach (var item in Model.Contacts)
+    {
+        <h2>@ViewBag.Title</h2>
+        <p>@item.Country</p>
+        <p>г. @item.City</p>
+        <p>@item.Address</p>
+    }
+
+    <br />
+    <h2>Телефоны</h2>
+    @foreach (var phone in Model.Phones)
+    {
+        <p>
+            @if (phone.Operator == "МТС")
+                {
+                <img src="~/Images/mts.jpg" width="25" />
+            }
+            else if (phone.Operator == "Velcom")
+            {
+                <img src="~/Images/iconvel.jpg" width="25" />
+            }
+            else if (phone.Operator == "Life")
+            {
+                <img src="~/Images/mts.jpg" width="25" />
+            }
+
+            @phone.Number
+        </p>
+    }
+    <br />
+    <h2>Электронная почта</h2>
+    @foreach (var mail in Model.Contacts)
+    {
+        <p>
+            <img src="~/Images/mailruIcon.png" width="25" />
+            @mail.Email
+        </p>
+    }
+    <br />
+</div>
+
+

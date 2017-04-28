@@ -1,0 +1,51 @@
+﻿@model Misaar.Models.Article
+
+@{
+    ViewBag.Title = "Удаление статьи";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Удаление статьи</h2>
+
+<h3>Уверены что хотите удалить статью?</h3>
+<div>
+    <h4>Статья</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+            <a href=@Url.Action("Index", "Articles") class="btn btn-default">
+                К списку статей
+            </a>
+        </div>
+    }
+</div>

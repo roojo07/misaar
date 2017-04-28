@@ -1,0 +1,55 @@
+﻿@using Misaar.Models
+@model Misaar.Models.Category
+
+@{
+    ViewBag.Title = "Детали";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Детали</h2>
+
+<div>
+    <h4>Категория</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuPosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuPosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        @if (Model.Files.Any(f => f.FileType == FileType.Avatar))
+        {
+            <dt>
+                Картинка
+            </dt>
+            <dd>
+                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).FileId" alt="avatar" width="320" height="240" />
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <p class="btn btn-default">@Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) </p>
+    <a href=@Url.Action("Index", "Categories") class="btn btn-default">
+        К списку категорий
+    </a>
+</div>

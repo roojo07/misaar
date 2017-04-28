@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutProducts.cshtml";
+}
+
+@using Misaar.Models
+
+@model AllFilesModel
+
+@if(Model.Products.Any(p => p.Discount != null))
+{
+   <a href=@Url.Action("List", "Discount")>
+    <div class="row hidden-xs" id="discountBanner">
+        <div class="pull-left col-md-2 col-sm-2"><img src="~/Images/gift.png" alt="gift" width="100" style="margin-top:-25px; margin-right:20px" /></div>
+        <div class="pull-left col-md-8 col-sm-8"><h3 class="discountText" id="blink" style="margin-left:20px"><span style="margin-right:30px">СКИДКИ!</span></h3></div>
+        <div class="pull-left col-md-2 col-sm-2"><img src="~/Images/discount.png" alt="discount" width="140" style="margin-top:-25px; margin-left:-30px" /></div>
+    </div>
+   </a>
+}
+
+@Html.Partial("~/Views/Shared/_PartialShowArticle.cshtml")
+<br />
+

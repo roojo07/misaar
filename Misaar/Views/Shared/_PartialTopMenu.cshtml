@@ -1,0 +1,78 @@
+﻿
+<div class="navbar navbar-fixed-top navbar-inverse hidden-xs hidden-sm hidden-md">
+    <div class="container">
+        <div class="navbar-left" style="background-color:white">
+            <a href=@Url.Action("Index", "Home")><img src="~/Images/misaarLogo.jpg" width="105" height="75" /></a>
+        </div>
+        
+            <a href=@Url.Action("Index", "Home")>
+                <div class="navbar-header navbar-brand">
+                    <img src="http://x-lines.ru/letters/i/cyrillicfancy/0833/376331/22/0/4n6pbqgto8embwfo4gynbwf94n77ddstor.png" style="margin-top:-3px">
+                </div>
+           </a>
+        
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("На главную", "Index", "Home")</li>
+                <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                <li id="nav">
+                    <span>Продукция</span>
+                    @{Html.RenderAction("Menu", "Home");}
+                </li>
+                <li>@Html.ActionLink("Доставка", "Delivery", "Home")</li>
+                <li>@Html.ActionLink("Сотрудничество", "Cooperation", "Home")</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="navbar navbar-inverse hidden-xs visible-md hidden-lg visible-sm" style="margin-top:-75px; margin-bottom:0">
+    <div class="container">
+        <div class="navbar-left" style="background-color:white">
+            <a href=@Url.Action("Index", "Home")><img src="~/Images/misaarLogo.jpg" width="105" height="75" /></a>
+        </div>
+        <div class="navbar-header navbar-brand">
+            <a href=@Url.Action("Index", "Home")>
+                <img src="http://x-lines.ru/letters/i/cyrillicfancy/0833/376331/22/0/4n6pbqgto8embwfo4gynbwf94n77ddstor.png" style="margin-top:-3px">
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("На главную", "Index", "Home")</li>
+                <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                <li id="nav">
+                    <span>Продукция</span>
+                    @{Html.RenderAction("Menu", "Home");}
+                </li>
+                <li>@Html.ActionLink("Доставка", "Delivery", "Home")</li>
+                <li>@Html.ActionLink("Сотрудничество", "Cooperation", "Home")</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="navbar navbar-inverse visible-xs" style="margin-top:-75px">
+    <div class="container">
+        <div class="navbar-left" style="background-color:transparent">
+            <a href=@Url.Action("Index", "Home")>
+                <img src="~/Images/misaarLogo.jpg" width="70" height="50" class="pull-left" style="margin:10px 5px 10px 0" />
+                <img src="http://x-lines.ru/letters/i/cyrillicfancy/0833/f9f6f6/18/0/4n6pbqgto8embwfo4gynbwf94n77ddstor.png" style="margin:20px 0 10px 10px">
+            </a>
+        </div>
+        <div id="mobileNav">
+            <ul class="navig">
+                <li id="nav">
+                    <span>Продукция</span>
+                    @{Html.RenderAction("Menu", "Home");}
+                </li>
+                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Доставка", "Delivery", "Home")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+﻿@model Misaar.Models.Phone
+
+@{
+    ViewBag.Title = "Детали";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Детали</h2>
+
+<div>
+    <h4>Телефон</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Operator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Operator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasViber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasViber)
+        </dd>       
+    </dl>
+</div>
+<div>
+    <p class="btn btn-default">@Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) </p>
+    <a href=@Url.Action("Index", "Phones") class="btn btn-default">
+        К списку телефонов
+    </a>
+</div>

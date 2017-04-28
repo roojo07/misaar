@@ -1,0 +1,250 @@
+﻿body {    
+   background-color:lightgray;   
+}
+
+.view-switcher {
+    padding: 0.5em; 
+    font-weight: normal;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input[type="text"].input-validation-error,
+input[type="password"].input-validation-error {
+    border: solid 1px #e80c4d;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+#mobileHeader{
+    background-color:#222222;
+    color:whitesmoke;
+    padding:0;
+    margin-top:0;
+}
+
+#mobileHeader a{
+    color:whitesmoke;    
+}
+
+            
+.nav > li { 
+    display:block;
+    float: left;
+    font-size:11px;
+}
+ul.nav > li > a {
+    display: block;                
+    padding:5px;
+    margin: 4px 5px;
+    background-color: #222222;                
+    text-decoration: none;
+    color: whitesmoke;
+    text-align: center;
+}
+            
+ul.nav span {
+    display: block;                
+    padding:5px;
+    margin: 4px 5px 4px -35px;
+    background-color: #222222;                
+    text-decoration: none;
+    color: whitesmoke;
+    text-align: center;
+}
+
+ul.nav a:hover{
+    background: #155FB0;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+ul.nav span:hover{
+    background: #155FB0;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#mobileNav{
+    background-color:#222222;
+    height:32px;
+    margin-top:-15px;
+}
+
+#footer{
+   background-color: #222222;   
+   color:white;
+   margin-top:10px;
+   padding:5px;
+}
+
+.mobilePrice{
+    float:right;
+    background-color:cornflowerblue;
+    color:white;
+    border-radius:3px;
+}
+
+.description{
+    text-align:justify;
+    margin-bottom:15px;
+    margin-top:15px;
+    line-height:1.5;
+    font-size:12px;
+}
+
+#phoneButton{
+    width:200px;
+    background-color:darkorange;    
+    padding:5px;
+    margin-bottom:20px;
+}
+
+#messageButton{
+    width:200px;  
+    padding:5px;  
+    background-color:darkorange;
+    float:left;
+}
+
+.productTable{
+    border:1px;
+    width:645px;        
+    text-align:center;            
+    font-size:14px; 
+    background-color:whitesmoke;   
+    border-collapse:collapse;
+}
+
+.tableHead{
+    font-weight:bold; 
+    background-color:#101010; 
+    color:lightgray;   
+}
+
+thead td{
+    border:1px solid white;
+}
+
+tbody td{         
+   border:1px solid black;    
+}
+
+.labelDanger{
+    background-color:firebrick;
+    color:white;
+    padding:5px;
+}
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 0;
+  border-top: 1px solid #bce8f1;
+}
+
+#phoneNumber{
+    width:200px;
+    height:150px;
+    background-color:darkslateblue;
+    opacity:0;
+    transition: 1.5s;
+    position:fixed;
+    top:30px; 
+    left:20px; 
+    z-index:-1;
+    padding: 10px 10px 10px 10px;
+    text-align:center;
+    font-size:15px;
+    color:whitesmoke;
+    border-radius:5px 5px 5px 5px;
+}
+
+#closeButton{
+    opacity:0.75;
+}
+
+#closeButton:hover{
+    opacity:1;
+}
+
+.phoneSend{   
+    padding-top:25px;
+    margin-bottom:20px;
+}
+
+
+ 
+.drop-menu-main a, 
+.drop-down, 
+.drop-menu-main-sub .title {
+    text-decoration: none;
+    color: #555555;
+    padding: 0 10px 0 0;
+}
+ 
+.drop-menu-main {
+    padding: 4px;
+    height: 20px;
+    position: relative;
+}
+ 
+.drop-menu-main li {
+    float: left;
+    margin-right: 40px;
+}
+ 
+.drop-menu-main-sub {
+    display: none;
+    position: absolute;
+    background: #FFFFFF;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    z-index: 100;
+    width: 130px;
+    padding: 5px 0 5px;
+    margin: -29px 0 0 -45px;
+}
+ 
+.drop-menu-main-sub a {
+    color: #555555;
+    display: block;
+    font-size: 11px;
+    padding: 6px 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+ 
+.drop-menu-main-sub a:hover {
+    background: #155FB0;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+ 
+
+ 
+li {
+    list-style: none;
+    display: block;
+}
+ 
+.drop-down {
+    cursor: pointer;
+}
+ 

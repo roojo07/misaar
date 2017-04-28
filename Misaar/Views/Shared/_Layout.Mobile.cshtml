@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title> 
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/Mobile/css", "~/Content/jquerymobile/css")
+        @Scripts.Render("~/bundles/jquery", "~/bundles/jquerymobile")
+        <script>
+            $(document).ready(function () {
+                $.mobile.ajaxEnabled = false; 
+            });
+        </script>
+    </head> 
+<body>
+
+    <div data-role="page" data-theme="a">
+
+        <div data-role="header" id="mobileHeader">
+            <a href=@Url.Action("Index", "Home")>
+                <h4 style="padding: 10px 0 10px 10px; text-align:center">МИСААР ПЛЮС</h4>
+            </a>              
+        </div>
+
+        <div data-role="navbar" id="mobileNav">
+            <ul class="nav">
+                <li>
+                    <span class="drop-down">Продукция</span>
+                    @{Html.RenderAction("MenuMobile", "Home");}
+                </li>                
+                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Доставка", "Delivery", "Home")</li>
+            </ul>
+        </div>
+
+        <div data-role="content">
+            @RenderSection("featured", false)
+            @RenderBody()
+        </div>
+
+        <div id="phoneNumber">
+
+            <div style="float:right" id="closeButton">
+                <img src="~/Images/close-icon-small.png" alt="close" width="20" />
+            </div>
+            <div class="phoneSend">
+                <p>Введите номер телефона</p>
+                <form action="/Home/SendPhone" method="post">
+                    <input type="text" name="phone" id="phone" class="form-control" />
+                    <br />
+                    <br />
+                    <input type="submit" value="Отправить" class="btn btn-default" />
+                </form>
+            </div>
+
+        </div>
+
+        <script>
+            var buttonClose = document.getElementById("closeButton");
+            buttonClose.onclick = hideDiv;
+
+            function hideDiv() {
+                var targetDiv = document.getElementById("phoneNumber");
+                targetDiv.style.opacity = 0;
+                targetDiv.style.zIndex = -1;
+            }
+        </script>
+
+        <div data-role="footer" id="footer">
+            @{ Html.RenderAction("FooterMobile", "Home");}
+        </div>
+        @Html.Partial("_ViewSwitcher")
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            function hideallDropdowns() {
+                $(".dropped .drop-menu-main-sub").hide();
+                $(".dropped").removeClass('dropped');
+                $(".dropped .drop-menu-main-sub .title").unbind("click");
+            }
+
+            function showDropdown(el) {
+                var el_li = $(el).parent().addClass('dropped');
+                el_li
+                    .find('.title')
+                    .click(function () {
+                        hideallDropdowns();
+                    })
+                    .html($(el).html());
+
+                el_li.find('.drop-menu-main-sub').show();
+            }
+
+            $(".drop-down").click(function () {
+                showDropdown(this);
+            });
+
+            $(document).mouseup(function () {
+                hideallDropdowns();
+            });
+        });
+    </script>
+</body>
+</html>

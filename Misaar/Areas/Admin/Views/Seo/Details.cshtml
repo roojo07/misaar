@@ -1,0 +1,45 @@
+﻿@using Misaar.Models
+@model MetaTag
+
+@{
+    ViewBag.Title = "Детали";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Детали</h2>
+
+<div>
+    <h4>Тэг</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KeyWords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyWords)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetaDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>      
+    </dl>
+</div>
+<div>
+    <p class="btn btn-default">@Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) </p>
+    <a href=@Url.Action("Index", "Meta") class="btn btn-default">
+        К списку
+    </a>
+</div>

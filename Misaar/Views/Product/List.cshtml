@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Misaar.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_LayoutProducts.cshtml";
+}
+
+@foreach (var item in Model)
+{
+
+    <div class="well">
+        @if (item.ImageData != null)
+        {
+            <a href="~/Product/GetItem/@item.Id">
+                <div class="pull-left" style="margin-right: 10px">
+                    <img class="img-thumbnail" width="100" height="100"
+                         src="@Url.Action("GetImage", "Product",
+                new { item.Id })" />
+                </div>
+            </a>
+        }
+
+        <h3 style="margin-top:5px">
+            <a href="~/Product/GetItem/@item.Id"><span>@item.Name</span></a>
+            @if (item.Name == "Установка стропильных систем любой сложности")
+                {
+                <span class="pull-right label label-primary">@item.Price.ToString("от #.## руб/кв м")</span>
+            }
+            else if (item.Category == "Необрезная" || item.Category == "Обрезная" || item.Category == "Срубы" || item.Category == "Стропильные системы")
+            {
+                <span class="pull-right label label-primary">@item.Price.ToString("от #.## руб/куб м")</span>
+
+            }
+            else
+            {
+                <span class="pull-right label label-primary">@item.Price.ToString("#.## руб/кв м")</span>
+            }
+        </h3>
+
+        <div>
+            <span class="label label-success">Под заказ, @item.DaysToWork.ToString() дней</span>
+        </div>
+
+    </div>
+}
+
+

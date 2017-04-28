@@ -1,0 +1,21 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
+}
+
+@model Misaar.Models.AllFilesModel
+
+@foreach(var article in Model.Articles)
+{
+    <div>
+        <h4>@article.Name</h4>
+        <input type="hidden" id="deliv" value="@article.Body" />
+        <div class="delivery"></div>
+        <script>
+                    var myJavaScriptValue = document.getElementById("deliv").value;
+                    var articleDiv = document.querySelector("div.delivery");
+                    articleDiv.innerHTML = myJavaScriptValue;
+        </script>
+    </div>
+}
+
+

@@ -1,0 +1,50 @@
+﻿@using Misaar.Models
+@model MetaTag
+
+@{
+    ViewBag.Title = "Удаление";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Удаление метатэга</h2>
+
+<div>
+    <h4>Статья</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KeyWords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyWords)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetaDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>      
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+            <a href=@Url.Action("Index", "Meta") class="btn btn-default">
+                К списку
+            </a>
+        </div>
+    }
+</div>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon"><title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @Html.Partial("_PartialTopMenu")
+    <br />
+    <div class="container body-content">
+        @Html.ActionLink("Статьи", "Index", new { controller = "Articles" }, new { @class = "btn btn-primary btn-text pull-right" })
+        @Html.ActionLink("Категории", "Index", new { controller = "Categories" }, new { @class = "btn btn-primary btn-text pull-right" })
+        @Html.ActionLink("Контакты", "Index", new { controller = "Contacts" }, new { @class = "btn btn-primary btn-text pull-right" })
+        @Html.ActionLink("Метаданные", "Index", new { controller = "Seo" }, new { @class = "btn btn-primary btn-text pull-right" })
+        @Html.ActionLink("Товары", "Index", new { controller = "Products" }, new { @class = "btn btn-primary btn-text pull-right" })
+
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

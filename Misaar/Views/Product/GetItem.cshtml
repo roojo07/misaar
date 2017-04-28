@@ -1,0 +1,225 @@
+﻿
+@using Misaar.Models
+@model Category
+
+@{
+    Layout = "~/Views/Shared/_LayoutProducts.cshtml";
+    ViewBag.Title = Model.Name;
+    ViewBag.KeyWords = Model.KeyWords;
+    ViewBag.MetaDescription = Model.MetaDescription;
+}
+
+<div style="min-height:300px">
+    @if (Model.Files.Any(f => f.FileType == FileType.Avatar))
+    {
+        <div class="pull-left" style="margin-right:25px; margin-bottom:15px">
+            <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).Id" alt="фото @Model.Name.ToLower() в Беларуси" width="320" height="240" />
+        </div>
+    }
+
+    <h3>
+        <strong>@Model.Name</strong>
+        @if (Model.Products.Count > 0)
+        {
+            if (Model.Measure == "куб.м")
+            {
+                <span class="label label-info pull-right hidden-xs">от @ViewBag.MinPrice руб/куб. м</span>
+            }
+            else
+            {
+                <span class="label label-info pull-right hidden-xs">от @ViewBag.MinPrice руб/кв. м</span>
+            }
+        }
+    </h3>    
+    <input type="hidden" id="itemBody" value="@Model.Description"/>
+    <div class="description"></div>    
+</div>
+<div>
+    <div class="row" style="text-align:center">
+        <div class="btn btn-warning col-md-6 col-sm-6 pull-left" id="phoneButton">
+            <img src="~/Images/telephone_black_small.png" alt="phone" width="30" height="30" style="margin-left:-10px; margin-bottom:2px" />
+            <span>ЗАКАЗАТЬ ЗВОНОК</span>
+        </div>
+        <a href=@Url.Action("Feedback", "Home")>
+            <div class="btn btn-warning col-md-6 col-sm-6 pull-left" id="messageButton">
+                <img src="~/Images/email_envelope.png" alt="message" width="30" height="30" style="margin-left:-10px; margin-bottom:2px" />
+                <span>НАПИСАТЬ НАМ</span>
+            </div>
+        </a>
+    </div>
+    <br />
+    @if (Model.Products.Count > 0 && (Model.Name == "Доски" || Model.Id == 3))
+    {
+        <table class="table table-bordered table-striped productTable" cellpadding="10" align="center">
+            <caption><h4>Пиломатериал обрезной естественной влажности</h4></caption>
+            <thead class="tableHead">
+                <tr>
+                    <td>Размеры (мм)</td>
+                    <td>Порода</td>
+                    <td>Длина (м)</td>
+                    <td>Сорт</td>
+                    <td>Наличие</td>
+                    <td>
+                        Цена за куб.м, руб
+                    </td>
+                </tr>
+            </thead>
+            <tbody class="table table-striped">
+                @foreach (var item in Model.Products)
+                {
+                    if (item.Subcategory == "Обрезная" && !item.IsHide)
+                    {
+                        <tr>
+                            <td>@item.Size</td>
+                            <td>@item.Material</td>
+                            <td>@item.Length</td>
+                            <td>@item.Sort</td>
+                            <td>
+                                @if (item.Presence == "Под заказ" && item.DaysToWork != null)
+                                {
+                                    <span>@item.Presence, @item.DaysToWork дней</span>
+                                }
+                                else
+                                {
+                                    @item.Presence
+                                }
+                            </td>
+                            <td>
+                                @if (item.Price == null)
+                                {
+                                    <span>Договорная</span>
+                                }
+                                @item.Price
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <table class="table table-bordered table-striped productTable" cellpadding="10" align="center">
+            <caption><h4>Пиломатериал необрезной естественной влажности</h4></caption>
+            <thead class="tableHead">
+                <tr>
+                    <td>Размеры (мм)</td>
+                    <td>Порода</td>
+                    <td>Длина (м)</td>
+                    <td>Сорт</td>
+                    <td>Наличие</td>
+                    <td>
+                        Цена за куб.м, руб
+                    </td>
+                </tr>
+            </thead>
+            <tbody class="table table-striped">
+                @foreach (var item in Model.Products)
+                {
+                    if (item.Subcategory == "Необрезная" && !item.IsHide)
+                    {
+                        <tr>
+                            <td>@item.Size</td>
+                            <td>@item.Material</td>
+                            <td>@item.Length</td>
+                            <td>@item.Sort</td>
+                            <td>
+                                @if (item.Presence == "Под заказ" && item.DaysToWork != null)
+                                {
+                                    <span>@item.Presence, @item.DaysToWork дней</span>
+                                }
+                                else
+                                {
+                                    @item.Presence
+                                }
+                            </td>
+                            <td>
+                                @if (item.Price == null)
+                                {
+                                    <span>Договорная</span>
+                                }
+                                @item.Price
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else if (Model.Products.Count > 0)
+    {
+        <table class="table table-bordered table-striped productTable" cellpadding="10" align="center">
+            <caption><h4>@Model.Name</h4></caption>
+            <thead class="tableHead">
+                <tr>
+                    <td>Размеры (мм)</td>
+                    <td>Порода</td>
+                    <td>Длина (м)</td>
+                    <td>Сорт</td>
+                    <td>Наличие</td>
+                    <td>
+                        @if (Model.Measure == "куб.м")
+                        {
+                            <span>Цена за куб.м, руб</span>
+                        }
+                        else
+                        {
+                            <span>Цена за кв.м, руб</span>
+                        }
+                    </td>
+                </tr>
+            </thead>
+            <tbody class="table table-striped">
+                @foreach (var item in Model.Products)
+                {
+                    if (!item.IsHide)
+                    {
+                        <tr>
+                            <td>@item.Size</td>
+                            <td>@item.Material</td>
+                            <td>@item.Length</td>
+                            <td>@item.Sort</td>
+                            <td>
+                                @if (item.Presence == "Под заказ" && item.DaysToWork != null)
+                                {
+                                    <span>@item.Presence, @item.DaysToWork дней</span>
+                                }
+                                else
+                                {
+                                    @item.Presence
+                                }
+                            </td>
+                            <td>
+                                @if (item.Price == null)
+                                {
+                                    <span>Договорная</span>
+                                }
+                                @item.Price
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+
+        </table>
+        if (Model.Name != "Брусок, брус" || Model.Id != 8)
+        {
+            <h3><span class="label label-danger">Цена на сорт 3, 4 - договорная</span></h3>
+        }
+    }
+</div>
+
+@section scripts{
+    <script>
+    var button = document.getElementById("phoneButton");
+    button.onclick = showDiv;
+
+    function showDiv() {
+        var targetDiv = document.getElementById("phoneNumber");
+        targetDiv.style.opacity = 0.9;
+        targetDiv.style.zIndex = 3;
+    }
+
+    var myJavaScriptValue = document.getElementById("itemBody").value;
+    var articleDiv = document.querySelector("div.description");
+    articleDiv.innerHTML = myJavaScriptValue;
+</script>
+       }

@@ -1,0 +1,15 @@
+﻿@{ 
+    Layout = null;
+}
+
+@using Misaar.Models;
+@model AllFilesModel
+
+
+<ul class="drop-menu-main-sub">
+    @foreach (var item in Model.Categories)
+    {
+        <li>@Html.RouteLink(item.Name, new { Controller = "Product", Action = "GetItem", id = item.GenerateSlug() })</li>
+    }
+</ul>
+

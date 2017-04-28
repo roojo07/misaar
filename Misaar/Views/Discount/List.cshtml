@@ -1,0 +1,55 @@
+﻿@using Misaar.Models
+@model AllFilesModel
+@{    
+    Layout = "~/Views/Shared/_LayoutProducts.cshtml";
+}
+
+<table class="table table-bordered table-striped productTable" cellpadding="10" align="center">
+    <caption><h4>Скидки</h4></caption>
+    <thead class="tableHead">
+        <tr>
+            <td>Категория</td>
+            <td>Размеры (мм)</td>
+            <td width="100">Порода</td>
+            <td>Длина (м)</td>
+            <td>Сорт</td>
+            <td>Скидка (%)</td>            
+            <td>Цена за кв.м, руб</td>
+            <td>Цена за куб.м, руб</td>
+        </tr>
+    </thead>
+    <tbody class="table table-striped">
+        @foreach (var item in Model.Products)
+        {
+            if (!item.IsHide)
+            {
+                <tr>
+                    <td>@item.Category.Name</td>
+                    <td>@item.Size</td>
+                    <td width="100">@item.Material</td>
+                    <td>@item.Length</td>
+                    <td>@item.Sort</td>
+                    <td><span class="label label-success" style="font-size:15px">@item.Discount</span></td>                   
+                    <td>
+                        @if (item.Category.Measure == "кв.м")
+                        {
+                            @item.DiscountedPrice
+                        }                        
+                    </td>
+                    <td>
+                        @if (item.Category.Measure == "куб.м")
+                        {
+                            @item.DiscountedPrice
+                        }
+                        
+                    </td>
+
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+
+
+

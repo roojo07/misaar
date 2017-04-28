@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+@using Misaar.Models
+@model ContactViewModel
+
+<hr />
+<div class="row">
+    @foreach (var contact in Model.Contacts)
+    {
+        <div class="col-md-4 hidden-xs hidden-sm">
+            <p><span>@contact.Country</span><span>, @contact.City</span></p>
+            <p>@contact.Address</p>
+            <p>Почтовый индекс @contact.PostIndex</p>
+            <p>Регистрационный номер ЕГР: 690346568</p>
+            <p>УНП: 690346568</p>
+            <p>Дата регистрации компании: 15.07.2005</p>
+        </div>
+    }
+    <div class="col-md-4 hidden-xs" style="text-align:center">
+        <p>&copy; 2005 – @DateTime.Now.Year ООО "МИСААР ПЛЮС"</p>
+        
+    </div>
+    <div class="col-md-4" style="text-align:center">
+        <p>Пн - Пт: 09:00 - 18:00</p>
+        <p>Сб - Вс: выходной</p>
+        <br />
+        @foreach (var phone in Model.Phones)
+        {
+            <p>
+                @if (phone.Operator == "МТС")
+                {
+                    <img src="~/Images/mts.jpg" width="25" />
+                }
+                else if (phone.Operator == "Velcom")
+                {
+                    <img src="~/Images/iconvel.jpg" width="25" />
+                }
+                else if (phone.Operator == "Life")
+                {
+                    <img src="~/Images/mts.jpg" width="25" />
+                }
+
+                @phone.Number
+            </p>
+        }
+        @foreach (var mail in Model.Contacts)
+        {
+            <p>
+                <img src="~/Images/mailruIcon.png" width="25" />
+                @mail.Email
+            </p>
+        }
+    </div>
+</div>
+<hr />

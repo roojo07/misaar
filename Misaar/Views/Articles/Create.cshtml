@@ -1,0 +1,74 @@
+﻿@model Misaar.Models.Article
+
+@{
+    ViewBag.Title = "Создание статьи";
+    ViewBag.Categories = new SelectList(new string[] { "Главная", "Доставка", "О нас", "Сотрудничество", "Скидки" });
+    ViewBag.PictureAlign = new SelectList(new string[] { "Слева", "Справа" });
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Создание статьи</h2>
+
+@using (Html.BeginForm("Create", "Articles", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Статья</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("category", ViewBag.Categories as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+            </div>
+        </div>      
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Align, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("align", ViewBag.PictureAlign as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Align, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Main", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="Main" name="upload" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Создать" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+}
+
+<a href=@Url.Action("Index", "Articles") class="btn btn-default">
+    К списку статей
+</a>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

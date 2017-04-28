@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+@using Misaar.Models
+@model ContactViewModel
+
+<hr />
+<div>
+   
+    <div style="text-align:center">
+        <p>Пн - Пт: 09:00 - 18:00</p>
+        <p>Сб - Вс: выходной</p>
+        
+        @foreach (var phone in Model.Phones)
+        {
+            <p>
+                @if (phone.Operator == "МТС")
+                {
+                    <img src="~/Images/mts.jpg" width="25" />
+                }
+                else if (phone.Operator == "Velcom")
+                {
+                    <img src="~/Images/iconvel.jpg" width="25" />
+                }
+                else if (phone.Operator == "Life")
+                {
+                    <img src="~/Images/mts.jpg" width="25" />
+                }
+
+               <span>@phone.Number</span>
+            </p>
+        }
+        @foreach (var mail in Model.Contacts)
+        {
+            <p>
+                <img src="~/Images/mailruIcon.png" width="25" />
+                <span>@mail.Email</span>
+            </p>
+        }
+    </div>
+</div>
+<hr />

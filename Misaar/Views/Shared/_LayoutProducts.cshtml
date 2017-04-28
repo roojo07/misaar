@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content=@ViewBag.MetaDescription />
+    <meta name="keywords" content=@ViewBag.KeyWords />
+    <link rel="icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    @Html.Partial("_PartialTopMenu")
+
+    <div class="container body-content">
+        <div class="banner hidden-xs">
+            <span class="pull-right" style="margin:65px 25px 15px 0">
+                @{ Html.RenderAction("ShowPhones", "Home");}
+            </span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-3 hidden-xs leftMenu">
+                <h2 class="hidden-sm" style="color:darkgreen; text-align:center">
+                    <img src="~/Images/treesMain.png" style="margin-top:-8px" width="25" height="25" />
+                    ТОВАРЫ
+                    <img src="~/Images/treesMain.png" style="margin-top:-8px" width="25" height="25" />
+                </h2>
+                <hr class="hidden-sm" />
+
+                <div class="products">@{Html.RenderAction("Menu", "Home");}</div>
+            </div>
+
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                @RenderBody()
+            </div>
+        </div>
+
+        <div id="phoneNumber">            
+            <div class="pull-right" id="closeButton">
+                <img src="~/Images/close-icon-small.png" alt="close" />
+            </div>
+            <div class="phoneSend">
+                <p>Введите номер телефона</p>
+                <form action="/Home/SendPhone" method="post">
+                    <input type="text" name="phone" id="phone" class="form-control" /><br />
+                    <input type="submit" value="ОТПРАВИТЬ" class="btn btn-default" />
+                </form>
+            </div>            
+        </div>       
+    </div>
+
+    <footer class="container">
+        @{ Html.RenderAction("Footer", "Home");}
+        <p>@Html.Partial("_ViewSwitcher")</p>
+    </footer>
+
+    <script>
+            var buttonClose = document.getElementById("closeButton");
+            buttonClose.onclick = hideDiv;
+
+            function hideDiv() {
+                var targetDiv = document.getElementById("phoneNumber");
+                targetDiv.style.opacity = 0;
+                targetDiv.style.zIndex = -1;
+            }
+    </script>
+   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

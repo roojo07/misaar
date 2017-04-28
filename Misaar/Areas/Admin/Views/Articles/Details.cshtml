@@ -1,0 +1,56 @@
+﻿@using Misaar.Models
+@model Article
+
+@{
+    ViewBag.Title = "Детали";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Детали</h2>
+
+<div>
+    <h4>Статья</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        @if (Model.Pictures.Any(f => f.PictureType == PictureType.Main))
+        {
+            <dt>
+                Картинка
+            </dt>
+            <dd>
+                <img src="~/Picture?id=@Model.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="main" />
+            </dd>
+        }       
+
+    </dl>
+</div>
+<div>
+    <p class="btn btn-default">@Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) </p>
+    <a href=@Url.Action("Index", "Articles") class="btn btn-default">
+        К списку статей
+    </a>
+</div>

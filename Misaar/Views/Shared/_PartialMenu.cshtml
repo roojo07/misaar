@@ -1,0 +1,16 @@
+﻿@{ 
+    Layout = null;
+}
+
+@using Misaar.Models;
+@model AllFilesModel
+
+<ul>
+    @foreach (var item in Model.Categories)
+    {
+        <li>@Html.RouteLink(item.Name.ToUpper(), new { Controller = "Product", Action = "GetItem", id = item.GenerateSlug() })</li>
+    }
+</ul>
+
+
+

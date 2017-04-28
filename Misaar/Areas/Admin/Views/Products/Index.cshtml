@@ -1,0 +1,96 @@
+﻿@model Misaar.Models.ProductsListViewModel
+
+@{
+    ViewBag.Title = "Все товары";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Все товары</h2>
+@Html.ActionLink("Создать новый товар", "Create", null, new { @class = "btn btn-primary btn-text" })
+
+<form method="get">
+    <div class="form-inline">
+        <label class="control-label">Категория: </label>
+        @Html.DropDownList("category", Model.Categories as SelectList,
+                    htmlAttributes: new { @class = "form-control" })        
+
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+<br/>
+<table class="table">
+    <tr>
+        <th>
+            Категория
+        </th>
+        <th>
+            Цена
+        </th>
+        <th>
+            Материал
+        </th>
+        <th>
+            Размеры
+        </th>
+        <th>
+            Длина
+        </th>
+        <th>
+            Сорт
+        </th>        
+        <th>
+            Скрыть
+        </th>
+        
+        <th>
+            Скидка
+        </th>
+        
+        <th>
+            Наличие
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Products) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Material)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Length)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sort)
+        </td>      
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.IsHide)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Presence)
+        </td>
+      
+        <td class="group">
+            <div class="btn btn-default">@Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) </div>
+            <div class="btn btn-default">@Html.ActionLink("Детали", "Details", new { id = item.Id })</div>
+            <div class="btn btn-default">@Html.ActionLink("Удалить", "Delete", new { id = item.Id })</div>             
+        </td>
+    </tr>
+}
+
+</table>
