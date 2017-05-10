@@ -14,45 +14,50 @@
 
 </head>
 <body>
-
     @Html.Partial("_PartialTopMenu")
 
     <div class="container body-content">
-        <div class="banner hidden-xs">
-            <span class="pull-right" style="margin:65px 25px 15px 0">
+
+        <div class="main-page-banner hidden-xs">
+            <span class="pull-right banner-phones">
                 @{ Html.RenderAction("ShowPhones", "Home");}
             </span>
         </div>
 
         <div class="row">
-            <div class="col-md-3 col-sm-3 hidden-xs leftMenu">
-                <h2 class="hidden-sm" style="color:darkgreen; text-align:center">
-                    <img src="~/Images/treesMain.png" style="margin-top:-8px" width="25" height="25" />
-                    ТОВАРЫ
-                    <img src="~/Images/treesMain.png" style="margin-top:-8px" width="25" height="25" />
-                </h2>
-                <hr class="hidden-sm" />
 
-                <div class="products">@{Html.RenderAction("Menu", "Home");}</div>
+            <div class="col-md-3 col-sm-3 hidden-xs left-menu">
+                <h2 class="hidden-sm left-menu-header">
+                    <img src="~/Images/treesMain.png" class="left-menu-img"/>
+                    ТОВАРЫ
+                    <img src="~/Images/treesMain.png" class="left-menu-img"/>
+                </h2>
+
+                <div class="left-menu-items">@{Html.RenderAction("Menu", "Home");}</div>
             </div>
 
             <div class="col-md-9 col-sm-9 col-xs-12">
                 @RenderBody()
             </div>
+
         </div>
 
-        <div id="phoneNumber">            
-            <div class="pull-right" id="closeButton">
+        <div id="send-phone-form">
+
+            <div class="pull-right" id="send-phone-xbutton">
                 <img src="~/Images/close-icon-small.png" alt="close" />
             </div>
-            <div class="phoneSend">
+
+            <div class="send-phone-number">
                 <p>Введите номер телефона</p>
-                <form action="/Home/SendPhone" method="post">
+                <form action="~/Home/SendPhone" method="post">
                     <input type="text" name="phone" id="phone" class="form-control" /><br />
                     <input type="submit" value="ОТПРАВИТЬ" class="btn btn-default" />
                 </form>
-            </div>            
-        </div>       
+            </div>
+
+        </div>
+
     </div>
 
     <footer class="container">
@@ -60,21 +65,11 @@
         <p>@Html.Partial("_ViewSwitcher")</p>
     </footer>
 
-    <script>
-            var buttonClose = document.getElementById("closeButton");
-            buttonClose.onclick = hideDiv;
 
-            function hideDiv() {
-                var targetDiv = document.getElementById("phoneNumber");
-                targetDiv.style.opacity = 0;
-                targetDiv.style.zIndex = -1;
-            }
-    </script>
-   
+    <script src="~/Scripts/HideShowDiv.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
-
 </html>

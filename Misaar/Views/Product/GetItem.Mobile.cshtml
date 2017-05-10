@@ -8,11 +8,11 @@
     ViewBag.Title = Model.Name;
 }
 
-<div style="min-height:300px">
+<div class="product-info">
     @if (Model.Files.Any(f => f.FileType == FileType.Avatar))
     {
-        <div style="margin-right:15px; margin-bottom:10px; float:left">
-            <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).Id" alt="avatar" width="160" height="120" />
+        <div class="product-img-mobile pull-left">
+            <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).Id" alt="avatar"/>
         </div>
     }
 
@@ -21,18 +21,20 @@
     </h5>
 
     <input type="hidden" id="itemBody" value="@Model.Description" />
-    <div class="description"></div>
+    <div class="product-description-mob">
+        <p id="descr"></p>
+    </div>
    
 </div>
 <div>
-    <div style="text-align:center">
+    <div class="feedback-phone-mob">
         <div id="phoneButton">
-            <img src="~/Images/telephone_black_small.png" alt="phone" width="20" height="20" style="margin-left:-10px; margin-bottom:-3px" />
+            <img src="~/Images/telephone_black_small.png" alt="phone" />
             <span>Заказать звонок</span>
         </div>
         <a href=@Url.Action("Feedback", "Home")>
             <div id="messageButton">
-                <img src="~/Images/email_envelope.png" alt="message" width="20" height="20" style="margin-left:-10px; margin-bottom:-3px" />
+                <img src="~/Images/email_envelope.png" alt="message" />
                 <span>Написать нам</span>
             </div>
         </a>
@@ -200,19 +202,7 @@
 </div>
 <br />
 
+<script src="~/Scripts/HideShowDiv.js"></script>
+<script src="~/Scripts/insert_text_in_div.js"></script>
 
-<script>
-    var button = document.getElementById("phoneButton");
-    button.onclick = showDiv;
-
-    function showDiv() {
-        var targetDiv = document.getElementById("phoneNumber");
-        targetDiv.style.opacity = 0.9;
-        targetDiv.style.zIndex = 3;
-    }
-
-    var myJavaScriptValue = document.getElementById("itemBody").value;
-    var articleDiv = document.querySelector("div.description");
-    articleDiv.innerHTML = myJavaScriptValue;
-</script>
 

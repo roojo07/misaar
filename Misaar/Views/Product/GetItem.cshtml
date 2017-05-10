@@ -9,40 +9,45 @@
     ViewBag.MetaDescription = Model.MetaDescription;
 }
 
-<div style="min-height:300px">
-    @if (Model.Files.Any(f => f.FileType == FileType.Avatar))
-    {
-        <div class="pull-left" style="margin-right:25px; margin-bottom:15px">
-            <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).Id" alt="фото @Model.Name.ToLower() в Беларуси" width="320" height="240" />
-        </div>
-    }
+<div class="well">
+   
+        @if (Model.Files.Any(f => f.FileType == FileType.Avatar))
+        {
+            <div class="pull-left product-img">
+                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).Id" alt="фото @Model.Name.ToLower() в Беларуси" />
+            </div>
+        }
 
-    <h3>
-        <strong>@Model.Name</strong>
+        <h3 class="product-header pull-left hidden-sm hidden-xs">
+            <strong>@Model.Name</strong>
+        </h3>
+
+    <span class="visible-sm visible-xs"><strong>@Model.Name</strong></span>
+
         @if (Model.Products.Count > 0)
         {
             if (Model.Measure == "куб.м")
             {
-                <span class="label label-info pull-right hidden-xs">от @ViewBag.MinPrice руб/куб. м</span>
+                <span class="label label-info pull-right hidden-sm hidden-xs product-minprice">от @ViewBag.MinPrice руб/куб. м</span>
             }
             else
             {
-                <span class="label label-info pull-right hidden-xs">от @ViewBag.MinPrice руб/кв. м</span>
+                <span class="label label-info pull-right hidden-sm hidden-xs product-minprice">от @ViewBag.MinPrice руб/кв. м</span>
             }
         }
-    </h3>    
-    <input type="hidden" id="itemBody" value="@Model.Description"/>
-    <div class="description"></div>    
-</div>
-<div>
-    <div class="row" style="text-align:center">
+        <input type="hidden" id="itemBody" value="@Model.Description" />
+        <div class="product-description">
+            <p id="descr"></p>
+        </div>
+    
+    <div class="row feedback-phone-btn">
         <div class="btn btn-warning col-md-6 col-sm-6 pull-left" id="phoneButton">
-            <img src="~/Images/telephone_black_small.png" alt="phone" width="30" height="30" style="margin-left:-10px; margin-bottom:2px" />
+            <img src="~/Images/telephone_black_small.png" alt="phone" />
             <span>ЗАКАЗАТЬ ЗВОНОК</span>
         </div>
         <a href=@Url.Action("Feedback", "Home")>
             <div class="btn btn-warning col-md-6 col-sm-6 pull-left" id="messageButton">
-                <img src="~/Images/email_envelope.png" alt="message" width="30" height="30" style="margin-left:-10px; margin-bottom:2px" />
+                <img src="~/Images/email_envelope.png" alt="message" />
                 <span>НАПИСАТЬ НАМ</span>
             </div>
         </a>
@@ -106,9 +111,7 @@
                     <td>Длина (м)</td>
                     <td>Сорт</td>
                     <td>Наличие</td>
-                    <td>
-                        Цена за куб.м, руб
-                    </td>
+                    <td>Цена за куб.м, руб</td>
                 </tr>
             </thead>
             <tbody class="table table-striped">
@@ -202,24 +205,12 @@
         </table>
         if (Model.Name != "Брусок, брус" || Model.Id != 8)
         {
-            <h3><span class="label label-danger">Цена на сорт 3, 4 - договорная</span></h3>
+            <span class="label label-danger">Цена на сорт 3, 4 - договорная</span>
         }
     }
 </div>
 
 @section scripts{
-    <script>
-    var button = document.getElementById("phoneButton");
-    button.onclick = showDiv;
-
-    function showDiv() {
-        var targetDiv = document.getElementById("phoneNumber");
-        targetDiv.style.opacity = 0.9;
-        targetDiv.style.zIndex = 3;
-    }
-
-    var myJavaScriptValue = document.getElementById("itemBody").value;
-    var articleDiv = document.querySelector("div.description");
-    articleDiv.innerHTML = myJavaScriptValue;
-</script>
-       }
+    <script src="~/Scripts/HideShowDiv.js"></script>
+    <script src="~/Scripts/insert_text_in_div.js"></script>
+}

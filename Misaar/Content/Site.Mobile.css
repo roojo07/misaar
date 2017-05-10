@@ -49,6 +49,7 @@ input[type="password"].input-validation-error {
     float: left;
     font-size:11px;
 }
+
 ul.nav > li > a {
     display: block;                
     padding:5px;
@@ -101,12 +102,57 @@ ul.nav span:hover{
     border-radius:3px;
 }
 
-.description{
+.product-description-mob{
     text-align:justify;
     margin-bottom:15px;
     margin-top:15px;
     line-height:1.5;
     font-size:12px;
+}
+
+.feedback-phone-mob{
+    text-align:center;
+}
+
+.feedback-phone-mob #phoneButton img, .feedback-phone-mob #messageButton img{
+    margin-left:-10px; 
+    margin-bottom:-3px;
+    width: 20px;
+    height: 20px;
+}
+
+.top-header-mob{
+    padding: 10px 0 10px 10px; 
+    text-align:center;
+}
+
+.mobile-container{
+    min-height:900px; 
+    margin-bottom:20px;
+}
+
+.mobile-item{
+    margin-top:15px; 
+    padding:5px; 
+    background-color:rgba(36, 104, 41, 0.72); 
+    width:97%;
+    height: 80px;
+}
+
+.mobile-item-img{
+    margin-right:15px;
+    height: 75px;
+    float: left;    
+}
+
+.mobile-item-img img{
+    width: 100px;
+    height: 75px;
+}
+
+.mobile-item-header{
+    margin-top:0; 
+    color:white;    
 }
 
 #phoneButton{
@@ -152,16 +198,9 @@ tbody td{
     padding:5px;
 }
 
-hr {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border: 0;
-  border-top: 1px solid #bce8f1;
-}
-
-#phoneNumber{
+#send-phone-form{
     width:200px;
-    height:150px;
+    height:170px;
     background-color:darkslateblue;
     opacity:0;
     transition: 1.5s;
@@ -176,21 +215,42 @@ hr {
     border-radius:5px 5px 5px 5px;
 }
 
-#closeButton{
+#send-phone-xbutton{
     opacity:0.75;
+    float: right;
 }
 
-#closeButton:hover{
+#send-phone-xbutton:hover{
     opacity:1;
 }
 
 .phoneSend{   
     padding-top:25px;
     margin-bottom:20px;
+} 
+
+.mobile-logo{
+    width: 70px;
+    height: 50px;
+    margin:10px 5px 10px 0;
+}
+
+.product-info{
+    min-height:300px;
+}
+
+.product-img-mobile{
+    margin-right:15px; 
+    margin-bottom:10px;
+}
+
+.product-img-mobile img{
+    width: 160px;
 }
 
 
- 
+/*------------------ Мобильное меню -------------------- */
+
 .drop-menu-main a, 
 .drop-down, 
 .drop-menu-main-sub .title {
@@ -237,8 +297,6 @@ hr {
     text-decoration: none;
 }
  
-
- 
 li {
     list-style: none;
     display: block;
@@ -247,4 +305,5 @@ li {
 .drop-down {
     cursor: pointer;
 }
+
  

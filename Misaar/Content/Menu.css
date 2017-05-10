@@ -1,0 +1,131 @@
+﻿/*--------------------------- ВЫПАДАЮЩИЕ ПУНКТЫ ------------------------------*/
+.top-menu-products {
+	float:left;	
+	position:relative;
+	display:block;
+}
+
+.top-menu-products label{
+	display:block;
+	padding:5px;	
+	text-decoration:none;	
+	text-shadow:1px 1px 1px rgba(0,0,0,0.75);
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+}
+
+.top-menu-products ul{
+	list-style:none;
+	position:absolute;
+	display:none; 
+    z-index: -1;
+	opacity:0; 
+	-webkit-transition:0.25s linear opacity;
+    -moz-transition:0.25s linear opacity;
+    -o-transition:0.25s linear opacity;
+    transition: 0.25s linear opacity;
+}
+
+.top-menu-products ul li{
+	padding-top:1px; 
+	float:none;	
+}
+
+.top-menu-products ul a{
+	white-space:nowrap;
+	display:block;
+    padding:3px 10px 3px 10px;
+}
+
+.top-menu-products:hover ul{ 
+	display:block; 
+    z-index:2;
+	opacity:1;
+    margin-left:-30px;
+}
+
+@media (max-width: 768px){
+    .top-menu-products:hover ul{ 
+	display:block; 
+	opacity:1;
+    margin-left:-75px;
+   }
+}
+
+.top-menu-products:hover a{ 
+	background:darkorange;
+	background:rgba(255,140,0,0.75);    	
+}
+
+.top-menu-products:hover ul a{ 
+	text-decoration:none;
+	-webkit-transition:-webkit-transform 0.075s linear;
+    -moz-transition:-moz-transform 0.075s linear;
+    -o-transition:-o-transform 0.075s linear;
+    transition: 0.075s linear;
+    color:white;
+    font-family:Georgia, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:16px;
+}
+
+.top-menu-products:hover ul li a:hover{ 
+	background:#333;
+	background:rgba(51,51,51,0.75);     
+	-moz-transform:scale(1.05);   
+	-webkit-transform:scale(1.05);   
+    -ms-transform:scale(1.05);   
+    -o-transform:scale(1.05);
+    transform: scale(1.05);
+}
+
+.top-menu-products span{
+    margin: 21px 10px 10px 10px;
+    padding: 5px;
+    display:block;
+}
+
+
+/*------------------------------- МЕНЮ СЛЕВА ---------------------------------*/
+
+.left-menu-img{
+    margin-top:-8px;
+    width: 25px;
+    height: 25px;
+}
+
+.left-menu-header{
+    color:darkgreen; 
+    text-align:center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.left-menu-items ul{
+    list-style-type:none; 
+    padding-left:5px;     
+    font-family:Georgia, Arial;
+    font-size:18px;
+}
+
+.left-menu-items ul li{
+    border-bottom: 1px dashed #bce8f1;
+    margin-bottom: 10px;
+    background: url('../Images/bullet-normal-green.gif') 0 8px no-repeat;
+    padding: 0 0 0 15px;
+}
+   
+.left-menu-items ul li:hover {
+    background: url('../Images/bullet-hover-orange.gif') 0 8px no-repeat;
+}
+
+.left-menu-items ul a{
+    color: darkgreen; 
+    line-height: 23px;
+}
+
+.left-menu-items ul a:hover{
+    color:darkorange;
+    text-decoration:none;    
+}
+

@@ -16,7 +16,7 @@
                 <li>@Html.ActionLink("На главную", "Index", "Home")</li>
                 <li>@Html.ActionLink("О нас", "About", "Home")</li>
                 <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
-                <li id="nav">
+                <li class="top-menu-products">
                     <span>Продукция</span>
                     @{Html.RenderAction("Menu", "Home");}
                 </li>
@@ -43,7 +43,7 @@
                 <li>@Html.ActionLink("На главную", "Index", "Home")</li>
                 <li>@Html.ActionLink("О нас", "About", "Home")</li>
                 <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
-                <li id="nav">
+                <li class="top-menu-products">
                     <span>Продукция</span>
                     @{Html.RenderAction("Menu", "Home");}
                 </li>
@@ -59,13 +59,13 @@
     <div class="container">
         <div class="navbar-left" style="background-color:transparent">
             <a href=@Url.Action("Index", "Home")>
-                <img src="~/Images/misaarLogo.jpg" width="70" height="50" class="pull-left" style="margin:10px 5px 10px 0" />
+                <img src="~/Images/misaarLogo.jpg" class="pull-left mobile-logo"/>
                 <img src="http://x-lines.ru/letters/i/cyrillicfancy/0833/f9f6f6/18/0/4n6pbqgto8embwfo4gynbwf94n77ddstor.png" style="margin:20px 0 10px 10px">
             </a>
         </div>
         <div id="mobileNav">
             <ul class="navig">
-                <li id="nav">
+                <li class="top-menu-products">
                     <span>Продукция</span>
                     @{Html.RenderAction("Menu", "Home");}
                 </li>

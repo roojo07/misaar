@@ -4,7 +4,7 @@
 @using Misaar.Models
 @model ContactViewModel
 
-<div class="phonesbann pull-right">
+<div class="pull-right">
     @if (Model.Phones != null)
     {
         foreach (var item in Model.Phones)
@@ -16,7 +16,7 @@
                 }
                 else
                 {
-                    <img src="~/Images/vibericon.png" width="25" style="opacity:0" />
+                    <img src="~/Images/vibericon.png" width="25" style="opacity: 0" />
                 }
 
                 @if (item.Operator == "МТС")
@@ -47,6 +47,5 @@
                 @item.Email
             </p>
         }
-
     }   
 </div>

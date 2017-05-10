@@ -21,13 +21,13 @@
                 if (item.Align == "Слева")
                 {
                     <div class="pull-left mainpicture">
-                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="производство пиломатериалов Беларусь" style="margin-right:15px" width="400" height="300" />
+                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="производство пиломатериалов Беларусь" style="margin-right:15px" width="305" />
                     </div>
                 }
                 else
                 {
                     <div class="pull-right mainpicture">
-                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="производство пиломатериалов Беларусь" style="margin-right:15px" width="400" height="300" />
+                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="производство пиломатериалов Беларусь" style="margin-right:15px" width="305" />
                     </div>
                 }
             }
@@ -36,13 +36,13 @@
                 if (item.Align == "Слева")
                 {
                     <div class="pull-left mainpicture">
-                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="доставка пиломатериалов в Беларуси" style="margin-right:15px" width="305" height="230" />
+                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="доставка пиломатериалов в Беларуси" style="margin-right:15px" width="400" />
                     </div>
                 }
                 else
                 {
                     <div class="pull-right mainpicture">
-                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="доставка пиломатериалов в Беларуси" style="margin-right:15px" width="305" height="230" />
+                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="доставка пиломатериалов в Беларуси" style="margin-right:15px" width="400" />
                     </div>
                 }
             }
@@ -54,7 +54,8 @@
             var myJavaScriptValue = document.getElementById("artBody").value;
             var articleDiv = document.querySelector("div.body");
             articleDiv.innerHTML = myJavaScriptValue;
-        </script></div>
+        </script>
+    </div>
 }
 
 

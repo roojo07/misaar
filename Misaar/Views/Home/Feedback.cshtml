@@ -11,9 +11,9 @@
         <div class="form-horizontal">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <span class="visible-lg"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:120px; margin-bottom:-30px" /></span>
-            <span class="visible-md"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:88px; margin-bottom:-30px" /></span>
-            <span class="visible-sm visible-xs"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:-6px; margin-bottom:-30px" /></span>
+            <span class="visible-lg"><img src="~/Images/asterisk_red.png" alt="asterix" class="asterix" style="margin-left:120px" /></span>
+            <span class="visible-md"><img src="~/Images/asterisk_red.png" alt="asterix" class="asterix" style="margin-left:88px" /></span>
+            <span class="visible-sm visible-xs"><img src="~/Images/asterisk_red.png" alt="asterix" class="asterix" style="margin-left:-6px" /></span>
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -31,9 +31,9 @@
             </div>
 
             <div class="form-group">
-                <span class="visible-lg"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:43px; margin-bottom:-30px" /></span>
-                <span class="visible-md"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:10px; margin-bottom:-30px" /></span>
-                <span class="visible-sm visible-xs"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:6px; margin-bottom:-30px" /></span>
+                <span class="visible-lg"><img src="~/Images/asterisk_red.png" alt="asterix" class="asterix" style="margin-left:43px" /></span>
+                <span class="visible-md"><img src="~/Images/asterisk_red.png" alt="asterix" class="asterix" style="margin-left:10px" /></span>
+                <span class="visible-sm visible-xs"><img src="~/Images/asterisk_red.png" class="asterix" alt="asterix" style="margin-left:6px" /></span>
                 @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })                
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
@@ -43,9 +43,9 @@
 
 
             <div class="form-group">
-                <span class="visible-lg"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:42px; margin-bottom:-30px" /></span>
-                <span class="visible-md"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:10px; margin-bottom:-30px" /></span>
-                <span class="visible-sm visible-xs"><img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-left:6px; margin-bottom:-30px" /></span>
+                <span class="visible-lg"><img src="~/Images/asterisk_red.png" class="asterix" alt="asterix" style="margin-left:42px" /></span>
+                <span class="visible-md"><img src="~/Images/asterisk_red.png" class="asterix" alt="asterix" style="margin-left:10px" /></span>
+                <span class="visible-sm visible-xs"><img src="~/Images/asterisk_red.png" class="asterix" alt="asterix" style="margin-left:6px" /></span>
                 @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })               
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
@@ -61,7 +61,7 @@
         </div>
     }
 
-    <p>Поля, обязательные для заполнения, помечены <img src="~/Images/asterisk_red.png" alt="asterix" width="7" style="margin-top:-5px"/></p>
+    <p>Поля, обязательные для заполнения, помечены <img src="~/Images/asterisk_red.png" alt="asterix" class="asterix" style="margin-top:-5px"/></p>
 </div>
 
 

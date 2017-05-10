@@ -18,7 +18,7 @@
 
         <div data-role="header" id="mobileHeader">
             <a href=@Url.Action("Index", "Home")>
-                <h4 style="padding: 10px 0 10px 10px; text-align:center">МИСААР ПЛЮС</h4>
+                <h4 class="top-header-mob">МИСААР ПЛЮС</h4>
             </a>              
         </div>
 
@@ -38,14 +38,14 @@
             @RenderBody()
         </div>
 
-        <div id="phoneNumber">
+        <div id="send-phone-form">
 
-            <div style="float:right" id="closeButton">
+            <div id="send-phone-xbutton">
                 <img src="~/Images/close-icon-small.png" alt="close" width="20" />
             </div>
             <div class="phoneSend">
                 <p>Введите номер телефона</p>
-                <form action="/Home/SendPhone" method="post">
+                <form action="~/Home/SendPhone" method="post">
                     <input type="text" name="phone" id="phone" class="form-control" />
                     <br />
                     <br />
@@ -54,52 +54,15 @@
             </div>
 
         </div>
-
-        <script>
-            var buttonClose = document.getElementById("closeButton");
-            buttonClose.onclick = hideDiv;
-
-            function hideDiv() {
-                var targetDiv = document.getElementById("phoneNumber");
-                targetDiv.style.opacity = 0;
-                targetDiv.style.zIndex = -1;
-            }
-        </script>
-
+       
         <div data-role="footer" id="footer">
             @{ Html.RenderAction("FooterMobile", "Home");}
         </div>
         @Html.Partial("_ViewSwitcher")
     </div>
-    <script>
-        $(document).ready(function () {
 
-            function hideallDropdowns() {
-                $(".dropped .drop-menu-main-sub").hide();
-                $(".dropped").removeClass('dropped');
-                $(".dropped .drop-menu-main-sub .title").unbind("click");
-            }
-
-            function showDropdown(el) {
-                var el_li = $(el).parent().addClass('dropped');
-                el_li
-                    .find('.title')
-                    .click(function () {
-                        hideallDropdowns();
-                    })
-                    .html($(el).html());
-
-                el_li.find('.drop-menu-main-sub').show();
-            }
-
-            $(".drop-down").click(function () {
-                showDropdown(this);
-            });
-
-            $(document).mouseup(function () {
-                hideallDropdowns();
-            });
-        });
-    </script>
+    <script src="~/Scripts/HideShowDiv.js"></script>
+    <script src="~/Scripts/mobile-dropdown-menu.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
