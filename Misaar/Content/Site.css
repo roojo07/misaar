@@ -77,15 +77,63 @@ textarea {
     width: 100%;
     max-width:250px;
     margin-right:15px;    
-    margin-bottom:10px;
-    float:left;
-    padding-top:10px;
+    margin-bottom:10px;    
+    padding-top:10px;  
+    margin-left: 150px; 
+}
+
+@media(max-width: 1200px){
+    #phoneButton{
+        margin-left: 75px;
+    }
+}
+
+@media(max-width: 992px){
+    #phoneButton{
+        margin-left: 120px;
+    }
+}
+
+@media(max-width: 768px){
+    #phoneButton{
+        margin-left: 12%;
+    }
+}
+
+@media(max-width: 661px){
+    #phoneButton{
+        margin-left: 40px;
+    }
+}
+
+@media(max-width: 616px){
+    #phoneButton{
+        margin-left: 15px;
+    }
+}
+
+@media(max-width: 590px){
+    #phoneButton{
+        margin-left: 0;
+    }
 }
 
 #messageButton{
     width: 100%;
     max-width:250px;  
-    padding-top:10px;    
+    padding-top:10px;           
+}
+
+@media(max-width: 992px){
+    #messageButton{
+        margin-left: 120px;
+    }
+}
+
+@media(max-width: 768px){
+    #messageButton{
+        margin-left: 0;
+    }
 }
 
 #phoneButton img, #messageButton img{
@@ -133,9 +181,18 @@ textarea {
 }
 
 .feedback-phone-btn{
-    padding-top: 25px; 
-    width: 65%;
-    margin: 0 auto;      
+    padding-top: 25px;     
+    margin: 0 auto;    
+}
+
+@media(max-width: 590px){
+    .feedback-phone-btn{
+        width: 65%;
+    }
+}
+
+.article-body{
+    line-height: 1.7;
 }
 
 footer{
@@ -195,7 +252,7 @@ footer{
     padding:15px;
 }
 
-.asterix{
+.asterix img{
     margin-bottom:-30px;
     width: 7px; 
 }
@@ -224,12 +281,26 @@ footer{
 }
 
 .maincontainer{
-    text-align:justify;
-    margin-top:15px;
-    margin-bottom:25px;    
-    line-height:2;
+    text-align:justify;     
     font-size:18px;
     min-height:350px;
+}
+
+.mainpicture{
+    width: 35%;
+    max-width: 350px;
+}
+
+.mainpicture img{
+    width: 100%;    
+}
+
+.mainpicture-left{
+    margin-right: 15px;
+}
+
+.mainpicture-right{
+    margin-left: 15px;
 }
 
 .productTable{
@@ -278,7 +349,8 @@ footer{
     border-radius:15px;
     padding:15px 0 15px 0;
     margin-left:-5px;
-    margin-right:-5px;    
+    margin-right:-5px; 
+    margin-bottom: 20px;   
 }
 
 #discountBanner:hover{
@@ -303,10 +375,24 @@ footer{
     width: 100px;
 }
 
+@media(max-width: 992px){
+    .gift-img{
+        width: 85px;
+        margin-top: -15px;
+    }
+}
+
 .discount-img{
     margin-top:-25px; 
     margin-left:-30px;
     width: 140px;
+}
+
+@media(max-width: 992px){
+    .discount-img{
+        width: 110px;
+        margin-top: -15px;
+    }
 }
 
 #blink {

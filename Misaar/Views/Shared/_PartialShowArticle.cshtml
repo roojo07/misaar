@@ -15,47 +15,29 @@
             <h2 class="text-center">@item.Name</h2>
         }
         @if (item.Pictures.Any(p => p.PictureType == PictureType.Main))
-        {
-            if (item.Category != "Доставка")
-            {
+        {           
                 if (item.Align == "Слева")
                 {
-                    <div class="pull-left mainpicture">
-                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="производство пиломатериалов Беларусь" style="margin-right:15px" width="305" />
+                    <div class="pull-left mainpicture mainpicture-left">
+                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="производство пиломатериалов Беларусь" />
                     </div>
                 }
                 else
                 {
-                    <div class="pull-right mainpicture">
-                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="производство пиломатериалов Беларусь" style="margin-right:15px" width="305" />
+                    <div class="pull-right mainpicture mainpicture-right">
+                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="производство пиломатериалов Беларусь" />
                     </div>
-                }
-            }
-            else
-            {
-                if (item.Align == "Слева")
-                {
-                    <div class="pull-left mainpicture">
-                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="доставка пиломатериалов в Беларуси" style="margin-right:15px" width="400" />
-                    </div>
-                }
-                else
-                {
-                    <div class="pull-right mainpicture">
-                        <img src="~/Picture?id=@item.Pictures.First(f => f.PictureType == PictureType.Main).Id" alt="доставка пиломатериалов в Беларуси" style="margin-right:15px" width="400" />
-                    </div>
-                }
-            }
+                }           
         }
-        <input type="hidden" id="artBody" value="@item.Body" />
-        <div class="body"></div>
-
-        <script>
-            var myJavaScriptValue = document.getElementById("artBody").value;
-            var articleDiv = document.querySelector("div.body");
-            articleDiv.innerHTML = myJavaScriptValue;
-        </script>
+        <input type="hidden" id="article-body" value="@item.Body" />
+        <div class="article-body"></div>        
     </div>
 }
+
+<script>
+    var myJavaScriptValue = document.getElementById("article-body").value;
+     var articleDiv = document.querySelector("div.article-body");
+     articleDiv.innerHTML = myJavaScriptValue;
+</script>
 
 
